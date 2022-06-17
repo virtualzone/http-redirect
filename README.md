@@ -8,7 +8,7 @@ To run with Docker and redirect incoming requests to `https://virtualzone.de`, u
 docker run --rm -d \
     -p 8080:8080 \
     -e TARGET="https://virtualzone.de" \
-    virtualzone/http-redirect
+    ghcr.io/virtualzone/http-redirect
 ```
 
 ## Environment variables
