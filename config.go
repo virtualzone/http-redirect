@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"net/http"
 	"os"
 	"strconv"
 	"strings"
@@ -25,7 +26,7 @@ func (c *Config) ReadConfig() {
 	c.ListenAddr = c.getEnv("LISTEN_ADDR", "0.0.0.0:8080")
 	c.TargetURL = strings.TrimSuffix(c.getEnv("TARGET", "http://localhost/"), "/")
 	c.AppendPath = c.getEnvBool("APPEND_PATH", true)
-	c.HttpStatusCode = c.getEnvInt("STATUS_CODE", 307)
+	c.HttpStatusCode = c.getEnvInt("STATUS_CODE", http.StatusMovedPermanently)
 }
 
 func (c *Config) Print() {
